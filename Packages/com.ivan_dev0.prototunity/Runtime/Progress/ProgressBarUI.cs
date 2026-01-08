@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Progress {
+namespace PrototUnity.Progress {
     public class ProgressBarUI : MonoBehaviour {
         [SerializeField] private Progressable progressBar;
         [SerializeField] private Vector3 progressBarPosition;

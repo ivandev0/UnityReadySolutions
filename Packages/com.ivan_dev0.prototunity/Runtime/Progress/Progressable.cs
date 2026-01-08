@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Progress {
+namespace PrototUnity.Progress {
 	public class Progressable: MonoBehaviour {
 		[SerializeField] private float total;
 		[SerializeField] private bool destroyOnDeath = true;

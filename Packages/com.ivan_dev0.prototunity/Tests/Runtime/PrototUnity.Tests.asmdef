@@ -1,6 +1,6 @@
 {
     "name": "PrototUnity.Tests",
-    "rootNamespace": "",
+    "rootNamespace": "PrototUnity",
     "references": [
         "PrototUnity",
         "UnityEngine.TestRunner",

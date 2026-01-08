@@ -1,6 +1,6 @@
 using System;
 
-namespace Progress {
+namespace PrototUnity.Progress {
 	public static class ProgressExtensions {
 		public static void Kill(this Progressable progress) {
 			progress.Decrease(progress.Current);

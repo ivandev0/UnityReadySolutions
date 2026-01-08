@@ -1,6 +1,6 @@
 {
     "name": "PrototUnity.Editor",
-    "rootNamespace": "",
+    "rootNamespace": "PrototUnity.Editor",
     "references": [
         "PrototUnity"
     ],

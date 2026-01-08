@@ -1,6 +1,6 @@
 {
     "name": "PrototUnity.Editor.Tests",
-    "rootNamespace": "",
+    "rootNamespace": "PrototUnity.Editor",
     "references": [
         "PrototUnity.Editor",
         "PrototUnity",
