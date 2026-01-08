@@ -1,0 +1,14 @@
+{
+	"name": "com.ivan_dev0.prototunity",
+	"displayName":"PrototUnity",
+	"version": "0.1.0",
+	"unity": "6000.3",
+	"unityRelease": "2f1",
+	"description": "A set of common utils and solutions.",
+	"dependencies": {
+		"com.unity.test-framework": "1.6.0"
+	},
+	"author": {
+		"name": "Ivan Kylchik"
+	}
+}
