@@ -6,7 +6,8 @@
 	"unityRelease": "2f1",
 	"description": "A set of common utils and solutions.",
 	"dependencies": {
-		"com.unity.test-framework": "1.6.0"
+		"com.unity.test-framework": "1.6.0",
+		"com.unity.ugui": "2.0.0"
 	},
 	"author": {
 		"name": "Ivan Kylchik"
