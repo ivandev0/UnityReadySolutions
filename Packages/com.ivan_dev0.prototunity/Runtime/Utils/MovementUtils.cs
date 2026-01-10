@@ -1,0 +1,70 @@
+using System;
+using System.Collections;
+using UnityEngine;
+
+namespace PrototUnity.Utils {
+	public static class MovementUtils {
+		public static IEnumerator ParabolicMovement(
+			float y0, float y1, float heightToReach, float duration, Action<float> onChange = null, Action onEnd = null
+		) {
+			var time = 0f;
+
+			while (time < duration) {
+
+				var a = (-4 * heightToReach + 2 * y0 + 2 * y1) / (duration * duration);
+				var b = (4 * heightToReach - 3 * y0 - y1) / duration;
+				var c = y0;
+				var heightDiff = a * time * time + b * time + c;
+				var newY = heightDiff;
+
+				onChange?.Invoke(newY);
+				time += Time.deltaTime;
+				yield return null;
+			}
+			
+			onEnd?.Invoke();
+		}
+		
+		public static IEnumerator ParabolicMovement(
+			Vector3 v0, Vector3 v1, float heightToReach, float duration, Action<Vector3> onChange = null, Action onEnd = null
+		) {
+			var time = 0f;
+			var middlePoint = (v0 + v1) / 2;
+			var heightPoint = new Vector3(middlePoint.x, heightToReach, middlePoint.z);
+
+			while (time < duration) {
+
+				var a = (-4 * heightPoint + 2 * v0 + 2 * v1) / (duration * duration);
+				var b = (4 * heightPoint - 3 * v0 - v1) / duration;
+				var c = v0;
+				var heightDiff = a * time * time + b * time + c;
+				var newV = heightDiff;
+
+				onChange?.Invoke(newV);
+				time += Time.deltaTime;
+				yield return null;
+			}
+			
+			onEnd?.Invoke();
+		}
+		
+		// https://en.wikipedia.org/wiki/Damping
+		// lambda - decay rate, more value means faster decay
+		// omega - frequency, more value means more "peaks" will appear
+		public static IEnumerator DumpingMovement(
+			float amplitude, float lambda, float omega, float duration, Action<float> onChange, Action onEnd = null
+		) {
+			var time = 0f;
+
+			while (time < duration) {
+				// see plot for best result https://www.desmos.com/calculator/gg3rhjqzr8
+				var newY = amplitude * Mathf.Exp(- lambda * time) * Mathf.Sin(omega * 2 * Mathf.PI * time);
+				onChange.Invoke(newY);
+				time += Time.deltaTime;
+				yield return null;
+			}
+			
+			onEnd?.Invoke();
+		}
+	}
+}
