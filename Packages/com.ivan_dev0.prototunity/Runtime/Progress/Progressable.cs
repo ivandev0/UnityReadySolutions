@@ -43,5 +43,10 @@ namespace PrototUnity.Progress {
 				if (destroyOnDeath) Destroy(gameObject);
 			}
 		}
+
+		public void SetNewTotal(float newTotal) {
+			Total = newTotal;
+			ProgressChangedEvent.Invoke(this, new EventArgs { delta = 0 });
+		}
 	}
 }
