@@ -4,6 +4,7 @@ using UnityEngine.Events;
 
 namespace PrototUnity.Progress {
 	public class Progressable: MonoBehaviour {
+		[SerializeField] private float initial;
 		[SerializeField] private float total;
 		[SerializeField] private bool destroyOnDeath = true;
 	
@@ -23,7 +24,7 @@ namespace PrototUnity.Progress {
 	
 		private void Awake() {
 			Total = total;
-			Current = Total;
+			Current = initial;
 		}
 
 		public void Decrease(float power) {
