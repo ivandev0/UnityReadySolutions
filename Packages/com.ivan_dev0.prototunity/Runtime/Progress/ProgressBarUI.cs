@@ -33,7 +33,7 @@ namespace PrototUnity.Progress {
 
         private void Render(Progressable progress) {
             if (showNumbers) textMesh.text = $"{progress.Current} / {progress.Total}";
-            HideOrShow(hide: hideOnFullProgress && progress.HasFullDurability());
+            HideOrShow(hide: hideOnFullProgress && progress.IsFull());
         }
 
         private void HideOrShow(bool hide) {

@@ -10,7 +10,7 @@ namespace PrototUnity.Progress {
 			return progress.Current > 0;
 		}
 		
-		public static bool HasFullDurability(this Progressable progress, float tolerance = 0.01f) {
+		public static bool IsFull(this Progressable progress, float tolerance = 0.01f) {
 			return Math.Abs(progress.Total - progress.Current) < tolerance;
 		}
 	
