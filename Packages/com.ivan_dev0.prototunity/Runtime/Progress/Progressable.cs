@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,8 +24,14 @@ namespace PrototUnity.Progress {
 		}
 	
 		private void Awake() {
+			StartCoroutine(Init());
+		}
+
+		private IEnumerator Init() {
 			Total = total;
 			Current = initial;
+			yield return null;
+			ProgressChangedEvent.Invoke(this, new EventArgs { delta = 0 });
 		}
 
 		public void Decrease(float power) {
